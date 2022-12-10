@@ -1,38 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-signed main(int argc, char const *argv[])
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
+  // Read the number of test cases
+  int T;
+  cin >> T;
+
+  // Loop over each test case
+  while (T--)
+  {
+    // Read the initial velocity, maximum velocity, acceleration, and displacement
+    int u, maxV, a, s;
+    cin >> u >> maxV >> a >> s;
+
+    // Calculate the final velocity using the formula v^2 = u^2 - 2as
+    int vel = u*u-2*a*s;
+
+    // Check whether the final velocity is less than or equal to the maximum velocity
+    if (vel <= maxV*maxV)
     {
-        int u, v, a, s;
-        bool sucsess = false;
-        cin >> u >> v >> a >> s;
-
-        if (u <= v)
-        {
-            sucsess = true;
-        }
-        else
-        {
-            u = (u * u) + 2 * (-a) * s;
-            if (u <= v)
-            {
-                sucsess = true;
-            }
-        }
-
-        if (sucsess)
-        {
-            cout << "Yes" << endl;
-        }
-        else
-        {
-            cout << "No" << endl;
-        }
+      // Print "Yes" if the final velocity is less than or equal to the maximum velocity
+      cout << "Yes" << endl;
     }
+    else
+    {
+      // Print "No" if the final velocity is greater than the maximum velocity
+      cout << "No" << endl;
+    }
+  }
+
+  // End the program
+  return 0;
 }
